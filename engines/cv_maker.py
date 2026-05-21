@@ -1,4 +1,5 @@
 import streamlit as st
+from engines import database
 
 def render():
     st.markdown("""
@@ -9,7 +10,6 @@ def render():
         </p>
     </div>
     """, unsafe_allow_html=True)
-      from engines import database
 
     # Initialize states in session states for dynamically adding roles and saving inputs
     if "cv_name" not in st.session_state:
@@ -181,7 +181,7 @@ def render():
             if len(st.session_state.cv_projects) > 1:
                 if st.button("🗑️ Remove Last Project"):
                     st.session_state.cv_projects.pop()
-                    st.rerun()                 st.rerun()
+                    st.rerun()
 
     with col_preview:
         st.markdown("### 🖥️ Resume Style & PDF Preview")
